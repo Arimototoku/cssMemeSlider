@@ -64,19 +64,19 @@ img {
   transform: translateX(-300%);
 }
 
-#slide-1:checked ~ .text_control .pagination label:nth-child(1) {
+#slide-1:checked ~ .text_control .pagination label:nth-child(1) span {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#slide-2:checked ~ .text_control .pagination label:nth-child(2) {
+#slide-2:checked ~ .text_control .pagination label:nth-child(2) span {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#slide-3:checked ~ .text_control .pagination label:nth-child(3) {
+#slide-3:checked ~ .text_control .pagination label:nth-child(3) span {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#slide-4:checked ~ .text_control .pagination label:nth-child(4) {
+#slide-4:checked ~ .text_control .pagination label:nth-child(4) span {
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -89,18 +89,25 @@ img {
 
 .pagination {
   display: flex;
-  gap: 10px;
 }
 
 label {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+label span {
   display: block;
   width: 10px;
   height: 10px;
-  border-radius: 50%;
   background-color: #6ea3ca;
-  cursor: pointer;
   border: 1px solid #6ea3ca;
-  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
 }
 
 .slider-text {
@@ -130,8 +137,19 @@ label {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  label:hover {
+  label:hover span {
     background-color: #fff;
     border: 1px solid #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .text_control {
+    margin-top: 2em;
+    flex-direction: column-reverse;
+  }
+
+  .slider-text {
+    align-self: flex-start;
   }
 }
