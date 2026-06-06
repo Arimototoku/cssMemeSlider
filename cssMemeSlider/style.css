@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #25282a;
 }
@@ -10,8 +18,8 @@ main {
 .slider-container {
   height: calc(90vw * 0.45);
   overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.8);
 }
 
 input {
@@ -81,6 +89,7 @@ img {
 }
 
 .text_control {
+  margin-top: 2rem;
   width: 90vw;
   display: flex;
   align-items: center;
@@ -93,8 +102,8 @@ img {
 
 label {
   display: flex;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   align-items: center;
@@ -103,49 +112,63 @@ label {
 
 label span {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
   background-color: #6ea3ca;
-  border: 1px solid #6ea3ca;
+  border: 0.16rem solid #6ea3ca;
   border-radius: 50%;
 }
 
 .slider-text {
   text-align: left;
   color: white;
-  font-size: 20px;
+  font-size: 1.2rem;
+  display: grid;
+  overflow: hidden;
 }
 
 .text-item {
-  display: none;
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateX(30vw);
+  transition: transform 0.3s ease-in-out;
 }
 
 #slide-1:checked ~ .text_control .text-item:nth-child(1) {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 #slide-2:checked ~ .text_control .text-item:nth-child(2) {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 #slide-3:checked ~ .text_control .text-item:nth-child(3) {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 #slide-4:checked ~ .text_control .text-item:nth-child(4) {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.pagination label:active span {
+  transform: scale(0.8);
+  transition: transform 0.1s ease-in-out;
 }
 
 @media (hover: hover) and (pointer: fine) {
   label:hover span {
     background-color: #fff;
-    border: 1px solid #fff;
+    border: 0.16rem solid #fff;
   }
 }
 
 @media (max-width: 768px) {
   .text_control {
-    margin-top: 2em;
+    margin-top: 2rem;
     flex-direction: column-reverse;
   }
 
